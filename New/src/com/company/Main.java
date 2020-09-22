@@ -4,34 +4,36 @@ import java.util.*;
 
 public class Main {
 
-    public static string main(String s , int k) {
-	// write your code here
+    public static void main(String[] args) {
+        // write your code here
+    isAnagram("ball","call");
 
-            s="welcometojava"; k=3;
-            String smallest = "";
-            String largest = "";
+    }
+    static boolean isAnagram(String a, String b) {
+        // Complete the function
+        if(a.length()!=b.length()) return false;
+        a=a.toLowerCase();
+        b=b.toLowerCase();
+        int count=0;
 
-            // Complete the function
-            // 'smallest' must be the lexicographically smallest substring of length 'k'
-            // 'largest' must be the lexicographically largest substring of length 'k'
-            for(int i=0;i<=s.length()-k;i++){
-                String sub=s.substring(i,i+k);
-
-                if(sub.compareTo(smallest)<0||smallest.isEmpty()){
-                    smallest=sub;
-
+        for(char c='a';c<='z';c++){
+            for(int i=0;i<a.length();i++){
+                if(a.charAt(i)==c){
+                    count++;
                 }
-                if(sub.compareTo(largest)>0||smallest.isEmpty()){
-                    largest=sub;
-
+                if(b.charAt(i)==c){
+                    count--;
                 }
-
-
             }
 
 
-            System.out.println(smallest + "\n" + largest);
+            if(count!=0) {
+                return false;
+            }
         }
+
+        return true;
+    }
 
 }
 
